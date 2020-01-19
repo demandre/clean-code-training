@@ -5,16 +5,15 @@ namespace cleancode
     public class Restaurant
     {
 
-        //calcule le prix payé par l'utilisateur dans le restaurant, en fonction de type de
-        //repas qu'il prend (assiette ou sandwich), de la taille de la boisson (petit, moyen, grand), du dessert et
-        //de son type (normal ou special) et si il prend un café ou pas (yes ou no).
-        //les prix sont fixes pour chaque type de chose mais des réductions peuvent s'appliquer
-        //si cela rentre dans une formule!
+        /**
+         *  Computes meal billing with given meal options
+         */
         public double MealBilling(string mealType, string customerName, string drinkSize, string dessertType, string hasCoffee)
         {
             int total = 0;
 
             //le type ne peut être vide car le client doit déclarer au moins un repas
+            // Functionnal rule? we're letting it in case of
             if(string.IsNullOrEmpty(mealType+customerName)) return -1;
 
             if(mealType=="assiette")
@@ -27,7 +26,7 @@ namespace cleancode
                         if(dessertType=="normal")
                         {
                             total+=2;
-                        } else {
+                        } else if(dessertType=="special"){
                             total+=4;
                         }
                         break;
@@ -37,7 +36,7 @@ namespace cleancode
                         {
                             Console.Write("Prix Formule Standard appliquée\n");
                             total=18;
-                        } else {
+                        } else if(dessertType=="special"){
                             total+=4;
                         }
                         break;
@@ -46,7 +45,7 @@ namespace cleancode
                         if(dessertType=="normal")
                         {
                             total+=2;
-                        } else {
+                        } else if(dessertType=="special"){
                             Console.Write("Prix Formule Max appliquée\n");
                             total=21;
                         }
@@ -62,7 +61,7 @@ namespace cleancode
                         if(dessertType=="normal")
                         {
                             total+=2;
-                        } else {
+                        } else if(dessertType=="special"){
                             total+=4;
                         }
                         break;
@@ -72,7 +71,7 @@ namespace cleancode
                         {
                             Console.Write("Prix Formule Standard appliquée\n");
                             total=13;
-                        } else {
+                        } else if(dessertType=="special"){
                             total+=4;
                         }
                         break;
@@ -81,7 +80,7 @@ namespace cleancode
                         if(dessertType=="normal")
                         {
                             total+=2;
-                        } else {
+                        } else if(dessertType=="special"){
                             Console.Write("Prix Formule Max appliquée\n");
                             total=16;
                         }
