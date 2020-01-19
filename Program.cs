@@ -8,9 +8,9 @@ namespace cleancode
         static void Main(string[] args)
         {
             cleancode.Restaurant restaurant = new cleancode.Restaurant();
-            double invoice = restaurant.MealBilling("sandwich","pascal","moyen","normal","yes");
+            double invoice = restaurant.MealBilling("sandwich","moyen","normal","yes");
             Console.WriteLine(invoice);
-            invoice = restaurant.MealBilling("1","1","1","1","yes");
+            invoice = restaurant.MealBilling("1","1","1","yes");
             Console.WriteLine(invoice);
 
         }

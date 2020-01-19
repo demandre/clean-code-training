@@ -8,7 +8,7 @@ namespace cleancode
         /**
          *  Computes meal billing with given meal options
          */
-        public double MealBilling(string mealType, string customerName, string drinkSize, string dessertType, string hasCoffee)
+        public double MealBilling(string mealType, string drinkSize, string dessertType, string hasCoffee)
         {
             int total = 0;
 
@@ -30,10 +30,6 @@ namespace cleancode
 
             int coffeePrice = 1;
 
-            //le type ne peut être vide car le client doit déclarer au moins un repas
-            // Functionnal rule? we're letting it in case of
-            if(string.IsNullOrEmpty(mealType+customerName)) return -1;
-
             if(mealType=="assiette" && drinkSize=="moyen" && dessertType=="normal") {
                 Console.Write("Assiette Formule Standard appliquée\n");
                 total=assietteStandardMenuPrice;
@@ -42,7 +38,6 @@ namespace cleancode
                 }
                 return total;
             }
-
             if(mealType=="assiette" && drinkSize=="grand" && dessertType=="special") {
                 Console.Write("Assiette Formule Max appliquée\n");
                 total=assietteMaxMenuPrice;
@@ -54,7 +49,6 @@ namespace cleancode
                 total=sandwichStandardMenuPrice;
                 return total;
             }
-
             if(mealType=="sandwich" && drinkSize=="grand" && dessertType=="special") {
                 Console.Write("Sandich Formule Max appliquée\n");
                 total=sandwichMaxMenuPrice;
@@ -72,6 +66,9 @@ namespace cleancode
                 case "sandwich":
                     total+=sandwichPrice;
                     break;
+                default:
+                    Console.Write("Aucun repas commandé, erreur\n");
+                    return -1;
             }
 
             switch(drinkSize)
