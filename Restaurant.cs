@@ -12,77 +12,95 @@ namespace cleancode
         {
             int total = 0;
 
+            int assiettePrice = 15;
+            int sandwichPrice = 10;
+
+            int petitDrinkPrice = 2;
+            int moyenDrinkPrice = 3;
+            int grandDrinkPrice = 4;
+
+            int normalDessertPrice = 2;
+            int specialDessertPrice = 4;
+
+            int assietteStandardMenuPrice = 18;
+            int assietteMaxMenuPrice = 21;
+
+            int sandwichStandardMenuPrice = 13;
+            int sandwichMaxMenuPrice = 21;
+
+            int coffeePrice = 1;
+
             //le type ne peut être vide car le client doit déclarer au moins un repas
             // Functionnal rule? we're letting it in case of
             if(string.IsNullOrEmpty(mealType+customerName)) return -1;
 
             if(mealType=="assiette")
             {
-                total+=15;
+                total+=assiettePrice;
                 switch(drinkSize)
                 {
                     case "petit":
-                        total+=2;
+                        total+=petitDrinkPrice;
                         if(dessertType=="normal")
                         {
-                            total+=2;
+                            total+=normalDessertPrice;
                         } else if(dessertType=="special"){
-                            total+=4;
+                            total+=specialDessertPrice;
                         }
                         break;
                     case "moyen":
-                        total+=3;
+                        total+=moyenDrinkPrice;
                         if(dessertType=="normal")
                         {
                             Console.Write("Prix Formule Standard appliquée\n");
-                            total=18;
+                            total=assietteStandardMenuPrice;
                         } else if(dessertType=="special"){
-                            total+=4;
+                            total+=specialDessertPrice;
                         }
                         break;
                     case "grand":
-                        total+=4;
+                        total+=grandDrinkPrice;
                         if(dessertType=="normal")
                         {
-                            total+=2;
+                            total+=normalDessertPrice;
                         } else if(dessertType=="special"){
                             Console.Write("Prix Formule Max appliquée\n");
-                            total=21;
+                            total=assietteMaxMenuPrice;
                         }
                         break;
                 }
             }
             else if(mealType=="sandwich"){
-                total+=10;
+                total+=sandwichPrice;
                 switch(drinkSize)
                 {
                     case "petit":
-                        total+=2;
+                        total+=petitDrinkPrice;
                         if(dessertType=="normal")
                         {
-                            total+=2;
+                            total+=normalDessertPrice;
                         } else if(dessertType=="special"){
-                            total+=4;
+                            total+=specialDessertPrice;
                         }
                         break;
                     case "moyen":
-                        total+=3;
+                        total+=moyenDrinkPrice;
                         if(dessertType=="normal")
                         {
                             Console.Write("Prix Formule Standard appliquée\n");
-                            total=13;
+                            total=sandwichStandardMenuPrice;
                         } else if(dessertType=="special"){
-                            total+=4;
+                            total+=specialDessertPrice;
                         }
                         break;
                     case "grand":
-                        total+=4;
+                        total+=grandDrinkPrice;
                         if(dessertType=="normal")
                         {
-                            total+=2;
+                            total+=normalDessertPrice;
                         } else if(dessertType=="special"){
                             Console.Write("Prix Formule Max appliquée\n");
-                            total=16;
+                            total=sandwichMaxMenuPrice;
                         }
                         break;
                 }
@@ -91,7 +109,7 @@ namespace cleancode
             {
                 Console.Write("Café offert!\n");
             } else {
-                total+=1;
+                total+=coffeePrice;
             }
             return total;
         }
