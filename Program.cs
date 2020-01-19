@@ -10,7 +10,7 @@ namespace cleancode
             cleancode.Restaurant restaurant = new cleancode.Restaurant();
             double invoice = restaurant.MealBilling("sandwich","pascal","moyen","normal","yes");
             Console.WriteLine(invoice);
-            invoice = restaurant.MealBilling("1","1","1","1","1");
+            invoice = restaurant.MealBilling("1","1","1","1","yes");
             Console.WriteLine(invoice);
 
         }
