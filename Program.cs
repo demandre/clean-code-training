@@ -1,5 +1,5 @@
 ﻿using System;
-using static cleancode.App;
+using static cleancode.Restaurant;
 
 namespace cleancode
 {
@@ -7,9 +7,9 @@ namespace cleancode
     {
         static void Main(string[] args)
         {
-            cleancode.App app = new cleancode.App();
-            double truc = app.Compute("1","1","1","1","1","1","1");
-            Console.WriteLine(truc);
+            cleancode.Restaurant restaurant = new cleancode.Restaurant();
+            double invoice = restaurant.MealBilling("1","1","1","1","1","1","1");
+            Console.WriteLine(invoice);
         }
     }
 }

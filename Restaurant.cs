@@ -1,8 +1,8 @@
 namespace cleancode
 {
     using System;
-
-    public class App
+    
+    public class Restaurant
     {
 
         //calcule le prix payé par l'utilisateur dans le restaurant, en fonction de type de
@@ -10,7 +10,7 @@ namespace cleancode
         //de son type (normal ou special) et si il prend un café ou pas (yes ou no).
         //les prix sont fixes pour chaque type de chose mais des réductions peuvent s'appliquer
         //si cela rentre dans une formule!
-        public double Compute(string type, string name, string beverage, string size, string dessert, string dsize, string coffee)
+        public double MealBilling(string type, string name, string beverage, string size, string dessert, string dsize, string coffee)
         {
             //prix total à payer pour le client
             int total = 0;
