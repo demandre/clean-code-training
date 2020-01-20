@@ -9,7 +9,7 @@ namespace Restaurant
         IDessert dessert { get; set; }
         string hasCoffee { get; set; }
 
-        public double bill();
+        public float bill();
     }
 
     public class SandwichMeal : IMeal
@@ -19,21 +19,21 @@ namespace Restaurant
         public IDessert dessert { get; set; }
         public string hasCoffee { get; set; }
 
-        protected int price = 10;
+        protected float price = 10;
 
-        protected int standardMenuPrice = 13;
-        protected int maxMenuPrice = 21;
+        protected float standardMenuPrice = 13;
+        protected float maxMenuPrice = 21;
 
-        protected int coffeePrice = 1;
+        protected float coffeePrice = 1;
 
         /**
          *  Computes meal bill total
          *
          *  @return double total
          */
-        public double bill()
+        public float bill()
         {
-            int total = 0;
+            float total = 0;
 
             if(this.hasCoffee == "yes") {
                 total+=this.coffeePrice;
@@ -66,20 +66,20 @@ namespace Restaurant
         public IDessert dessert { get; set; }
         public string hasCoffee { get; set; }
 
-        protected int price = 15;
+        protected float price = 15;
 
-        protected int standardMenuPrice = 18;
-        protected int maxMenuPrice = 21;
-        protected int coffeePrice = 1;
+        protected float standardMenuPrice = 18;
+        protected float maxMenuPrice = 21;
+        protected float coffeePrice = 1;
 
         /**
          *  Computes meal bill total
          *
          *  @return double total
          */
-        public double bill()
+        public float bill()
         {
-            int total = 0;
+            float total = 0;
 
             if(this.hasCoffee == "yes") {
                 total+=this.coffeePrice;
@@ -110,39 +110,39 @@ namespace Restaurant
 
     public interface IDrink
     {
-        const int price = 0;
+        const float price = 0;
 
-        public int getPrice() {
+        public float getPrice() {
             return IDrink.price;
         }
     } 
     
     public class PetitDrink : IDrink{
-        const int price = 2; 
+        const float price = 2; 
 
     }
     public class MoyenDrink : IDrink{
-        const int price = 3; 
+        const float price = 3; 
 
     }
     public class GrandDrink : IDrink{
-        const int price = 4; 
+        const float price = 4; 
     }
-    
+
 
     public interface IDessert
     {
-        const int price = 0;
+        const float price = 0;
 
-        public int getPrice() {
+        public float getPrice() {
             return IDessert.price;
         }
     } 
     
     public class NormalDessert : IDessert{
-        const int price = 2; 
+        const float price = 2; 
     }
     public class SpecialDessert : IDessert{
-        const int price = 4; 
+        const float price = 4; 
     }
 }

@@ -11,7 +11,7 @@ namespace cleancode
             sandwichMeal.drink = new Restaurant.MoyenDrink();
             sandwichMeal.dessert = new Restaurant.SpecialDessert();
             sandwichMeal.hasCoffee = "yes";
-            double invoice = sandwichMeal.bill();
+            float invoice = sandwichMeal.bill();
             Console.WriteLine(invoice);
 
             Restaurant.IMeal assietteMeal = new Restaurant.AssietteMeal();
