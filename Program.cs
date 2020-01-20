@@ -7,19 +7,18 @@ namespace cleancode
     {
         static void Main(string[] args)
         {
-            Restaurant.Meal meal = new Restaurant.Meal();
-            meal.mealType="sandwich";
-            meal.drink=new Restaurant.MoyenDrink();
-            meal.dessert=new Restaurant.NormalDessert();
-            meal.hasCoffee="yes";
-            double invoice = meal.bill();
+            Restaurant.IMeal sandwichMeal = new Restaurant.SandwichMeal();
+            sandwichMeal.drink = new Restaurant.MoyenDrink();
+            sandwichMeal.dessert = new Restaurant.SpecialDessert();
+            sandwichMeal.hasCoffee = "yes";
+            double invoice = sandwichMeal.bill();
             Console.WriteLine(invoice);
 
-            meal.mealType="1";
-            meal.drink = new Restaurant.PetitDrink();
-            meal.dessert = new Restaurant.SpecialDessert();
-            meal.hasCoffee="yes";
-            invoice = meal.bill();
+            Restaurant.IMeal assietteMeal = new Restaurant.AssietteMeal();
+            assietteMeal.drink = new Restaurant.MoyenDrink();
+            assietteMeal.dessert = new Restaurant.NormalDessert();
+            assietteMeal.hasCoffee = "yes";
+            invoice = assietteMeal.bill();
             Console.WriteLine(invoice);
         }
     }
