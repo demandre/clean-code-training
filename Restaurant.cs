@@ -2,13 +2,23 @@ namespace cleancode
 {
     using System;
     
-    public class Restaurant
+    public class Meal
     {
+        string mealType;
+        string drinkSize;
+        string dessertType;
+        string hasCoffee;
+        public Meal(string mealType, string drinkSize, string dessertType, string hasCoffee) {
+            this.mealType = mealType;
+            this.drinkSize = drinkSize;
+            this.dessertType = dessertType;
+            this.hasCoffee = hasCoffee;
+        }
 
         /**
          *  Computes meal billing with given meal options
          */
-        public double MealBilling(string mealType, string drinkSize, string dessertType, string hasCoffee)
+        public double bill()
         {
             int total = 0;
 
@@ -30,26 +40,26 @@ namespace cleancode
 
             int coffeePrice = 1;
 
-            if(mealType=="assiette" && drinkSize=="moyen" && dessertType=="normal") {
+            if(this.mealType=="assiette" && this.drinkSize=="moyen" && this.dessertType=="normal") {
                 Console.Write("Assiette Formule Standard appliquée\n");
                 total=assietteStandardMenuPrice;
-                if(hasCoffee=="yes") {
+                if(this.hasCoffee=="yes") {
                     Console.Write("Café offert!\n");
                 }
                 return total;
             }
-            if(mealType=="assiette" && drinkSize=="grand" && dessertType=="special") {
+            if(this.mealType=="assiette" && this.drinkSize=="grand" && this.dessertType=="special") {
                 Console.Write("Assiette Formule Max appliquée\n");
                 total=assietteMaxMenuPrice;
                 return total;
             }
 
-            if(mealType=="sandwich" && drinkSize=="moyen" && dessertType=="normal") {
+            if(this.mealType=="sandwich" && this.drinkSize=="moyen" && this.dessertType=="normal") {
                 Console.Write("Sandwich Formule Standard appliquée\n");
                 total=sandwichStandardMenuPrice;
                 return total;
             }
-            if(mealType=="sandwich" && drinkSize=="grand" && dessertType=="special") {
+            if(this.mealType=="sandwich" && this.drinkSize=="grand" && this.dessertType=="special") {
                 Console.Write("Sandich Formule Max appliquée\n");
                 total=sandwichMaxMenuPrice;
                 return total;
@@ -58,7 +68,7 @@ namespace cleancode
             Console.Write("Aucune Formule applicable\n");
 
 
-            switch(mealType)
+            switch(this.mealType)
             {
                 case "assiette":
                     total+=assiettePrice;
@@ -71,7 +81,7 @@ namespace cleancode
                     return -1;
             }
 
-            switch(drinkSize)
+            switch(this.drinkSize)
             {
                 case "petit":
                     total+=petitDrinkPrice;
@@ -84,7 +94,7 @@ namespace cleancode
                     break;
             }
 
-            switch(dessertType)
+            switch(this.dessertType)
             {
                 case "normal":
                     total+=normalDessertPrice;
@@ -94,7 +104,7 @@ namespace cleancode
                     break;
             }
 
-            if(hasCoffee == "yes") {
+            if(this.hasCoffee == "yes") {
                 total+=coffeePrice;
             }
             

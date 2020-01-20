@@ -1,5 +1,5 @@
 ﻿using System;
-using static cleancode.Restaurant;
+using static cleancode.Meal;
 
 namespace cleancode
 {
@@ -7,10 +7,11 @@ namespace cleancode
     {
         static void Main(string[] args)
         {
-            cleancode.Restaurant restaurant = new cleancode.Restaurant();
-            double invoice = restaurant.MealBilling("sandwich","moyen","normal","yes");
+            cleancode.Meal meal = new cleancode.Meal("sandwich","moyen","normal","yes");
+            double invoice = meal.bill();
             Console.WriteLine(invoice);
-            invoice = restaurant.MealBilling("1","1","1","yes");
+            meal = new cleancode.Meal("1","1","1","yes");
+            invoice = meal.bill();
             Console.WriteLine(invoice);
 
         }
