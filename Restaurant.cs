@@ -4,20 +4,18 @@ namespace Restaurant
 
     public interface IMeal
     {
-        string mealType { get; set; }
         IDrink drink { get; set; }
         IDessert dessert { get; set; }
-        string hasCoffee { get; set; }
+        bool hasCoffee { get; set; }
 
         public float bill();
     }
 
     public class SandwichMeal : IMeal
     {
-        public string mealType { get; set; }
         public IDrink drink { get; set; }
         public IDessert dessert { get; set; }
-        public string hasCoffee { get; set; }
+        public bool hasCoffee { get; set; }
 
         protected float price = 10;
 
@@ -35,7 +33,7 @@ namespace Restaurant
         {
             float total = 0;
 
-            if(this.hasCoffee == "yes") {
+            if(this.hasCoffee) {
                 total+=this.coffeePrice;
             }
 
@@ -61,10 +59,9 @@ namespace Restaurant
 
     public class AssietteMeal : IMeal
     {
-        public string mealType { get; set; }
         public IDrink drink { get; set; }
         public IDessert dessert { get; set; }
-        public string hasCoffee { get; set; }
+        public bool hasCoffee { get; set; }
 
         protected float price = 15;
 
@@ -81,13 +78,13 @@ namespace Restaurant
         {
             float total = 0;
 
-            if(this.hasCoffee == "yes") {
+            if(this.hasCoffee) {
                 total+=this.coffeePrice;
             }
 
             if(this.drink.GetType().Name == "MoyenDrink" && this.dessert.GetType().Name == "NormalDessert") {
                 Console.Write("Assiette Formule Standard appliquée\n");
-                if(this.hasCoffee=="yes") {
+                if(this.hasCoffee) {
                     Console.Write("Café offert!\n");
                 }
                 total=this.standardMenuPrice;
