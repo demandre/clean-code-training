@@ -1,5 +1,5 @@
 ﻿using System;
-using static Restaurant.Meal;
+using Restaurant;
 
 namespace cleancode
 {
@@ -9,15 +9,15 @@ namespace cleancode
         {
             Restaurant.Meal meal = new Restaurant.Meal();
             meal.mealType="sandwich";
-            meal.drinkSize="moyen";
-            meal.dessertType="normal";
+            meal.drink=new Restaurant.MoyenDrink();
+            meal.dessert=new Restaurant.NormalDessert();
             meal.hasCoffee="yes";
             double invoice = meal.bill();
             Console.WriteLine(invoice);
 
             meal.mealType="1";
-            meal.drinkSize="1";
-            meal.dessertType="1";
+            meal.drink = new Restaurant.PetitDrink();
+            meal.dessert = new Restaurant.SpecialDessert();
             meal.hasCoffee="yes";
             invoice = meal.bill();
             Console.WriteLine(invoice);
