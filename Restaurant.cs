@@ -38,7 +38,9 @@ namespace cleancode
         protected int coffeePrice = 1;
 
         /**
-         *  Computes meal billing with given meal options
+         *  Computes meal bill total
+         *
+         *  @return double total
          */
         public double bill()
         {
