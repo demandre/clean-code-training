@@ -1,4 +1,4 @@
-namespace cleancode
+namespace Restaurant
 {
     using System;
 
